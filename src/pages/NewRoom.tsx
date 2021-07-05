@@ -15,15 +15,19 @@ export function NewRoom(){
   const history = useHistory();
 
   const [newRoom, setNewRoom] = useState('');
+
   async function handleCreateRoom(event: FormEvent) {
     event.preventDefault();
 
+    //verifica se existe um texto na input, para n poder criar sala sem nome
     if(newRoom.trim() === '') {
       return;
     }
 
+    //Reference é como uma linha dentro do banco de dados
     const roomRef = database.ref('rooms');
 
+    //jogando uma nova sala dentro da rooms
     const firebaseRoom = await roomRef.push({
       title: newRoom,
       authorId: user?.id,
