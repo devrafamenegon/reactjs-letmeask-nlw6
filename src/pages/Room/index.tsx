@@ -2,14 +2,15 @@ import { useEffect } from 'react';
 import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import logoImg from '../assets/images/logo.svg';
+import logoImg from '../../assets/images/logo.svg';
 
-import { Button } from '../components/Button';
-import { RoomCode } from '../components/RoomCode';
-import { useAuth } from '../hooks/UseAuth';
-import { database } from '../services/firebase';
+import { Button } from '../../components/Button/index';
+import { Question } from '../../components/Question';
+import { RoomCode } from '../../components/RoomCode/index';
+import { useAuth } from '../../hooks/UseAuth';
+import { database } from '../../services/firebase';
 
-import '../styles/room.scss';
+import './styles.scss';
 
 type FirebaseQuestions = Record<string, {
   author: {
@@ -22,7 +23,7 @@ type FirebaseQuestions = Record<string, {
   isHighlighted: boolean,
 }>
 
-type Question = {
+type QuestionType = {
   id: string,
 
   author: {
@@ -44,7 +45,7 @@ export function Room() {
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const [newQuestion, setNewQuestion] = useState('');
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [title, setTitle] = useState('');
 
   useEffect(() => {
@@ -130,6 +131,14 @@ export function Room() {
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
           </div>
         </form>
+
+        <div className="question-list">
+          {questions.map(question => {
+            return (
+              <Question key={question.id} content={question.content} author={question.author} />
+            );
+          })}
+        </div>
       </main>
     </div>
   );
