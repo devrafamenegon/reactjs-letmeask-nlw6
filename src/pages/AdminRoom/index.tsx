@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import Switch from 'react-switch';
 
 import logoImg from '../../assets/images/logo.svg';
 import deleteImg from '../../assets/images/delete.svg';
@@ -8,22 +10,27 @@ import answerImg from '../../assets/images/answer.svg';
 import { Button } from '../../components/Button/index';
 import { Question } from '../../components/Question';
 import { RoomCode } from '../../components/RoomCode/index';
-//import { useAuth } from '../../hooks/UseAuth';
 import { useRoom } from '../../hooks/UseRoom';
 import { database } from '../../services/firebase';
 
-import '../../styles/room.scss';
+import { PageRoom } from '../../styles/room';
+import { ThemeContext } from 'styled-components';
 
 type RoomParams = {
   id: string,
 }
 
-export function AdminRoom() {
-  //const { user } = useAuth();
+interface Props {
+  toggleTheme(): void;
+}
+
+export function AdminRoom(props: Props) {
   const history = useHistory();
   const params = useParams<RoomParams>();
   const roomId = params.id;
-  const { title, questions } = useRoom(roomId)
+  const { title, questions } = useRoom(roomId);
+  const { colors, titleTheme } = useContext(ThemeContext);
+  const { toggleTheme } = props;
 
   async function handleEndRoom() {
     await database.ref(`rooms/${roomId}`).update({
@@ -52,10 +59,26 @@ export function AdminRoom() {
   }
   
   return(
-    <div id="page-room">
+    <PageRoom>
       <header>
         <div className="content">
-          <img src={logoImg} alt="Letmeask" />
+          <div>
+            <img src={logoImg} alt="Letmeask" />
+            <Switch 
+              onChange={toggleTheme}
+              checked={titleTheme === 'dark'}
+              checkedIcon={false}
+              uncheckedIcon={false}
+              height={10}
+              width={40}
+              handleDiameter={20}
+              onHandleColor={colors.pink500}
+              offHandleColor={colors.purple800}
+              offColor="#e6e8eb"
+              onColor={colors.gray200}
+            /> 
+          </div>
+          
           <div>
             <RoomCode code={roomId}/>
             <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>
@@ -99,6 +122,6 @@ export function AdminRoom() {
           })}
         </div>
       </main>
-    </div>
+    </PageRoom>
   );
 }

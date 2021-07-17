@@ -1,4 +1,6 @@
-#page-auth {
+import styled from "styled-components";
+
+const PageAuth = styled.div`
   display: flex;
   align-items: stretch;
   height: 100vh;
@@ -6,8 +8,8 @@
   aside {
     flex: 7;
 
-    background: #835afd;
-    color: #ffffff;
+    background: var(--purple-800);
+    color: var(--white);
 
     display: flex;
     flex-direction: column;
@@ -29,7 +31,7 @@
       font-size: 24px;
       line-height: 32px;
       margin-top: 16px;
-      color: #f8f8f8;
+      color: var(--gray-20);
     }
   }
 
@@ -66,8 +68,8 @@
         height: 50px;
         border-radius: 8px;
         padding: 0 16px;
-        background: #fff;
-        border: 1px solid #a8a8b3;
+        background: var(--white);
+        border: 1px solid var(--gray-200);
       }
 
       button {
@@ -82,11 +84,11 @@
 
     p {
       font-size: 14px;
-      color: #737380;
+      color: var(--gray-500);
       margin-top: 16px;
 
       a {
-        color: #e559f9;
+        color: var(--pink-500);
       }
     }
   }
@@ -96,8 +98,8 @@
     height: 50px;
     border-radius: 8px;
     font-weight: 500;
-    background: #ea4335;
-    color: #fff;
+    background: var(--orange);
+    color: var(--white);
 
     display: flex;
     justify-content: center;
@@ -118,7 +120,7 @@
 
   .separator {
     font-size: 14px;
-    color: #a8a8b3;
+    color: var(--gray-200);
 
     margin: 32px 0;
     display: flex;
@@ -128,7 +130,7 @@
       content: "";
       flex: 1;
       height: 1px;
-      background: #a8a8b3;
+      background: var(--gray-200);
       margin-right: 16px;
     }
 
@@ -136,8 +138,10 @@
       content: "";
       flex: 1;
       height: 1px;
-      background: #a8a8b3;
+      background: var(--gray-200);
       margin-left: 16px;
     }
   }
-}
+`;
+
+export { PageAuth };

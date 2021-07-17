@@ -1,5 +1,7 @@
-.question {
-  background: #fefefe;
+import styled from "styled-components";
+
+const StyledQuestion = styled.div`
+  background: var(--gray-10);
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
@@ -13,20 +15,20 @@
   }
 
   &.highlighted {
-    background: #f4f0ff;
-    border: 1px solid #835afd;
+    background: var(--purple-10);
+    border: 1px solid var(--purple-800);
 
     footer .user-info span {
-      color: #29292e;
+      color: var(--gray-800);
     }
   }
 
   &.answered {
-    background: #dbdcdd;
+    background: var(--gray-150);
   }
 
   p {
-    color: #29292e;
+    color: var(--gray-800);
   }
 
   footer {
@@ -47,7 +49,7 @@
 
       span {
         margin-left: 8px;
-        color: #737380;
+        color: var(--gray-500);
         font-size: 14px;
       }
     }
@@ -66,14 +68,14 @@
       &.like-button {
         display: flex;
         align-items: flex-end;
-        color: #737380;
+        color: var(--gray-500);
         gap: 8px;
 
         &.liked {
-          color: #835afd;
+          color: var(--purple-800);
 
           svg path {
-            stroke: #835afd;
+            stroke: var(--purple-800);
           }
         }
       }
@@ -83,4 +85,6 @@
       }
     }
   }
-}
+`;
+
+export { StyledQuestion }

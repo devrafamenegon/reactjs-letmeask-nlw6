@@ -1,7 +1,9 @@
-#page-room {
+import styled from "styled-components";
+
+const PageRoom = styled.div`
   header {
     padding: 24px;
-    border-bottom: 1px solid #e2e2e2;
+    border-bottom: 1px solid var(--gray-100);
 
     .content {
       max-width: 1120px;
@@ -37,15 +39,15 @@
       h1 {
         font-family: "Poppins", sans-serif;
         font-size: 24px;
-        color: #29292e;
+        color: var(--gray-800);
       }
 
       span {
         margin-left: 16px;
-        background: #e559f9;
+        background: var(--pink-500);
         border-radius: 9999px;
         padding: 8px 16px;
-        color: #fff;
+        color: var(--white);
         font-weight: 500;
         font-size: 14px;
       }
@@ -57,7 +59,7 @@
         border: 0;
         padding: 16px;
         border-radius: 8px;
-        background: #fefefe;
+        background: var(--gray-10);
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         resize: vertical;
         min-height: 130px;
@@ -81,7 +83,7 @@
 
           span {
             margin-left: 8px;
-            color: #29292e;
+            color: var(--gray-800);
             font-weight: 500;
             font-size: 14px;
           }
@@ -89,13 +91,13 @@
 
         > span {
           font-size: 14px;
-          color: #737380;
+          color: var(--gray-500);
           font-weight: 500;
 
           button {
             background: transparent;
             border: 0;
-            color: #835afd;
+            color: var(--purple-800);
             text-decoration: underline;
             font-size: 14px;
             font-weight: 500;
@@ -109,4 +111,8 @@
       margin-top: 32px;
     }
   }
-}
+  `;
+
+export { PageRoom };
+
+

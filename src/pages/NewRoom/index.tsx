@@ -7,7 +7,7 @@ import logoImg from '../../assets/images/logo.svg';
 
 import { Button } from "../../components/Button/index";
 
-import '../../styles/auth.scss';
+import { PageAuth } from '../../styles/auth';
 import { database } from '../../services/firebase';
 
 export function NewRoom(){
@@ -37,7 +37,7 @@ export function NewRoom(){
   }
 
   return(
-    <div id="page-auth">
+    <PageAuth>
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
@@ -61,6 +61,6 @@ export function NewRoom(){
           </p>
         </div>
       </main>
-    </div>
+    </PageAuth>
   );
 }

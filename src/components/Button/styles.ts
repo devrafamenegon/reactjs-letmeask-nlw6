@@ -1,9 +1,11 @@
-.button {
+import styled from "styled-components";
+
+const StyledButton = styled.button`
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
-  background: #835afd;
-  color: #fff;
+  background: var(--purple-800);
+  color: var(--white);
   padding: 0 32px;
 
   display: flex;
@@ -19,14 +21,14 @@
   }
 
   &.outlined {
-    background: #fff;
-    border: 1px solid #835afd;
-    color: #835afd;
+    background: var(--white);
+    border: 1px solid var(--purple-800);
+    color: var(--purple-800);
     transition: all 0.2s;
 
     &:hover {
-      background: #835afd;
-      color: #fff;
+      background: var(--purple-800);
+      color: var(--white);
     }
   }
 
@@ -38,4 +40,6 @@
     opacity: 0.6;
     cursor: not-allowed;
   }
-}
+`;
+
+export { StyledButton };

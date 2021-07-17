@@ -10,7 +10,7 @@ import { useAuth } from '../../hooks/UseAuth';
 import { useRoom } from '../../hooks/UseRoom';
 import { database } from '../../services/firebase';
 
-import '../../styles/room.scss';
+import { PageRoom } from '../../styles/room';
 
 type RoomParams = {
   id: string,
@@ -62,7 +62,7 @@ export function Room() {
   }
 
   return(
-    <div id="page-room">
+    <PageRoom>
       <header>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
@@ -119,6 +119,6 @@ export function Room() {
           })}
         </div>
       </main>
-    </div>
+    </PageRoom>
   );
 }
